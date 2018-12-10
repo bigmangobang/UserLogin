@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+
+    <RelativeLayout
+        android:id="@+id/login_view"
+        android:layout_width="400dp"
+        android:layout_height="800dp"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="84sp"
+            android:layout_height="84sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="45dp"
+            android:background="#ffffff" />
+
+
+        <EditText
+            android:id="@+id/login_edit_account"
+            android:layout_width="300sp"
+            android:layout_height="50sp"
+            android:layout_below="@+id/logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/login_edit"
+            android:gravity="center"
+            android:hint="请输入您的用户名"
+            android:inputType="textPersonName" />
+
+
+        <EditText
+            android:id="@+id/login_edit_pwd"
+            android:layout_width="300sp"
+            android:layout_height="50sp"
+            android:layout_below="@+id/login_edit_account"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/login_edit"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="请输入您的密码"
+            android:inputType="textPassword" />
+
+
+        <LinearLayout
+            android:layout_width="320sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_btn_cancle"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="10dp">
+
+            <CheckBox
+                android:id="@+id/Login_Remember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="记住密码"
+                android:textColor="#0c3d68"
+                android:textSize="17dp" />
+
+
+            <TextView
+                android:id="@+id/login_text_change_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:text="忘记密码"
+                android:textColor="#0c3d68"
+                android:textSize="17dp" />
+
+            <TextView
+                android:id="@+id/login_text_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="27dp"
+                android:text="新用户注册"
+                android:textColor="#0c3d68"
+                android:textSize="17dp" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/login_btn_login"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_edit_pwd"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:alpha="0.8"
+            android:background="@drawable/login_button"
+            android:text="登     录"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+
+
+        <Button
+            android:id="@+id/login_btn_cancle"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_btn_login"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:alpha="0.8"
+            android:background="@drawable/login_button"
+            android:text="注     销"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
+
