@@ -34,7 +34,7 @@ public class UserDataManager {             //用户数据管理类
     private DataBaseManagementHelper mDatabaseHelper = null;
 
     //DataBaseManagementHelper继承自SQLiteOpenHelper
-    private static class DataBaseManagementHelper extends SQLiteOpenHelper {
+    public static class DataBaseManagementHelper extends SQLiteOpenHelper {
 
         DataBaseManagementHelper(Context context) {
             super(context, DB_NAME, null, DB_VERSION);
@@ -169,14 +169,16 @@ public class UserDataManager {             //用户数据管理类
         }
         return result;
     }
+//返回所有用户名列表
 
     public  List<UserData> findAllUserName() {
         String sql = "select " + USER_NAME + " from" + TABLE_NAME;
         List<UserData> items = new ArrayList<>();
+
         Cursor cursor = mSQLiteDatabase.rawQuery(sql,null);
         while (cursor.moveToNext()) {
             UserData userData = new UserData();
-            userData.setUserName( cursor.getString(cursor.getColumnIndex(USER_NAME)));
+            userData.setUserName(cursor.getString(cursor.getColumnIndex(USER_NAME)));
             items.add(userData);
         }
         cursor.close();

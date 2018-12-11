@@ -3,17 +3,24 @@ package demo.dalitek.com.myapplication.UI;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+
+import java.time.Instant;
 
 import demo.dalitek.com.myapplication.Data.UserDataManager;
 import demo.dalitek.com.myapplication.R;
 import demo.dalitek.com.myapplication.Adapter.MyAdapter;
+
+import static demo.dalitek.com.myapplication.Data.UserDataManager.USER_NAME;
 
 
 public class User extends Activity {
