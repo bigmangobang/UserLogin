@@ -10,7 +10,6 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.jar.Attributes;
 
 public class UserDataManager {             //用户数据管理类
     //一些宏定义和声明
@@ -170,16 +169,18 @@ public class UserDataManager {             //用户数据管理类
         return result;
     }
 //返回所有用户名列表
-
-    public  List<UserData> findAllUserName() {
-        String sql = "select " + USER_NAME + " from" + TABLE_NAME;
+    public  List<UserData> getAllUserName() {
+        String sql = "select " + USER_NAME + " from " + TABLE_NAME;
         List<UserData> items = new ArrayList<>();
-
+        try{
+            openDataBase();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         Cursor cursor = mSQLiteDatabase.rawQuery(sql,null);
         while (cursor.moveToNext()) {
-            UserData userData = new UserData();
-            userData.setUserName(cursor.getString(cursor.getColumnIndex(USER_NAME)));
-            items.add(userData);
+            String name = cursor.getString(cursor.getColumnIndex(USER_NAME));
+            items.add(new UserData(name, (String) name. subSequence(0,1)));
         }
         cursor.close();
         return items;

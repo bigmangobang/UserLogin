@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import demo.dalitek.com.myapplication.Data.UserData;
@@ -32,25 +31,26 @@ public class MyAdapter extends ArrayAdapter {
     }
 
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        UserData product = (UserData) getItem(position);
+        UserData userData = (UserData) getItem(position);
         UserLayout userLayout = new UserLayout();
         View view;
         if (convertView == null) {
             view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
-            userLayout.nameView = view.findViewById(R.id.user);
+            userLayout.nameView = view.findViewById(R.id.user_name);
+            userLayout.userimg = view.findViewById(R.id.user_image);
             view.setTag(userLayout);
         } else {
             view = convertView;
             userLayout = (UserLayout) view.getTag();
         }
-        userLayout.nameView.setText(product.getUserName());
-
+        userLayout.nameView.setText(userData.getUserName());
+        userLayout.userimg.setText(userData.getUserPwd());
         return view;
     }
 
     class UserLayout {
         TextView nameView;
-        TextView pwdView;
+        TextView userimg;
         ImageView imgView;
         Button addButton;
     }

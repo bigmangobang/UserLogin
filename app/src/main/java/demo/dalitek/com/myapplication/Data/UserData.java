@@ -4,7 +4,6 @@ public class UserData {
     private String userName;                  //用户名
     private String userPwd;                   //用户密码
     private int userId;                       //用户ID号
-    public int pwdresetFlag = 0;
 
     //获取用户名
     public String getUserName() {             //获取用户名

@@ -11,6 +11,7 @@
         android:id="@+id/getname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="135sp"
         android:textColor="#0c3d68"
         android:textSize="25dp" />
 
@@ -19,13 +20,19 @@
         android:layout_width="match_parent"
         android:layout_height="480sp"></ListView>
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/returnback"
-        android:layout_width="300sp"
-        android:layout_height="wrap_content"
-        android:alpha="0.8"
-        android:background="@drawable/login_button"
-        android:text="退出"
-        android:textSize="25dp" />
+        <Button
+            android:id="@+id/returnback"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:background="@drawable/login_button"
+            android:text="返回登录界面"
+            android:textColor="#ffffff"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
 </LinearLayout>

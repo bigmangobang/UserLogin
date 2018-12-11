@@ -4,19 +4,25 @@
     android:layout_height="60sp"
     android:orientation="horizontal">
 
-    <ImageView
+    <TextView
         android:id="@+id/user_image"
         android:layout_width="50sp"
         android:layout_height="50sp"
         android:layout_marginLeft="8sp"
         android:background="@drawable/user_image"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textColor="#816060"
+        android:alpha="0.7"
+        android:textStyle="italic"
         android:layout_gravity="center"/>
 
     <TextView
-        android:id="@+id/user"
+        android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30sp"
+        android:text=""
         android:layout_gravity="center"
         android:textColor="#ffbf00"
         android:textSize="20sp" />

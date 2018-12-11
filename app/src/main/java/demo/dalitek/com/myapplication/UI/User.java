@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,11 +25,11 @@ import demo.dalitek.com.myapplication.Adapter.MyAdapter;
 import static demo.dalitek.com.myapplication.Data.UserDataManager.USER_NAME;
 
 
-public class User extends Activity {
+public class User extends Activity implements AdapterView.OnItemClickListener {
     private Button mReturnButton;
     private TextView text;
     private ListView user_show;
-    private UserDataManager mUserDataManager;
+    private UserDataManager userDataManager;
 
 
     @SuppressLint("WrongViewCast")
@@ -35,6 +37,7 @@ public class User extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user);
+        userDataManager = new UserDataManager(this);
         text = (TextView) findViewById(R.id.getname);
         mReturnButton = (Button) findViewById(R.id.returnback);
         user_show = (ListView) findViewById(R.id.user_lv);
@@ -46,16 +49,12 @@ public class User extends Activity {
             finish();
         });
         show();
+        user_show.setOnItemClickListener(this);
     }
 
     public void show() {
-        //        List<UserData> list = Arrays.asList(
-//                new UserData("今天是下雨天"),
-//                new UserData("ccdd", "$3000"),
-//                new UserData("aaa", "$3000")
-//        );
         MyAdapter adapter = new MyAdapter(
-                this, R.layout.user_item, mUserDataManager.findAllUserName()
+                this, R.layout.user_item, userDataManager.getAllUserName()
         );
 
         user_show.setAdapter(adapter);
@@ -68,5 +67,14 @@ public class User extends Activity {
             finish();
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        TextView textView = (TextView) findViewById(R.id.user_name);
+        String name = textView.getText().toString();
+        Intent intent = new Intent(User.this, Zone.class);
+        intent.putExtra("userName", name);
+        startActivity(intent);
     }
 }
