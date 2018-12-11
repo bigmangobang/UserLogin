@@ -41,7 +41,11 @@ public class UserData {
         this.userPwd = userPwd;
     }
 
-    public UserData(String userName) {  //这里只采用用户名和密码
+    public UserData(String userName)
+    {
         this.userName = userName;
+    }
+    public UserData(){
+
     }
 }

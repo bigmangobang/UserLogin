@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.jar.Attributes;
 
 public class UserDataManager {             //用户数据管理类
@@ -169,5 +170,17 @@ public class UserDataManager {             //用户数据管理类
         return result;
     }
 
+    public  List<UserData> findAllUserName() {
+        String sql = "select " + USER_NAME + " from" + TABLE_NAME;
+        List<UserData> items = new ArrayList<>();
+        Cursor cursor = mSQLiteDatabase.rawQuery(sql,null);
+        while (cursor.moveToNext()) {
+            UserData userData = new UserData();
+            userData.setUserName( cursor.getString(cursor.getColumnIndex(USER_NAME)));
+            items.add(userData);
+        }
+        cursor.close();
+        return items;
+    }
 
 }
