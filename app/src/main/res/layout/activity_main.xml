@@ -18,7 +18,7 @@
             android:layout_height="84sp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="45dp"
-            android:background="#ffffff" />
+            android:background="@drawable/icon" />
 
 
         <EditText
@@ -111,7 +111,6 @@
             android:textColor="#ffffff"
             android:textSize="20dp" />
     </RelativeLayout>
-
 
 
 </RelativeLayout>

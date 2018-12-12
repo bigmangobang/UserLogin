@@ -39,6 +39,7 @@
             android:textColor="#1e9f24"
             android:textSize="25sp" />
     </RelativeLayout>
+
     <EditText
         android:id="@+id/wenzi"
         android:layout_width="match_parent"
@@ -47,8 +48,7 @@
         android:hint="这一刻的想法"
         android:gravity="start"
         android:background="@drawable/login_edit"
-        android:lines="8"
-        />
+        android:lines="8" />
 
 
 </RelativeLayout>

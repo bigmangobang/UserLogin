@@ -15,17 +15,16 @@
         android:textColor="#816060"
         android:alpha="0.7"
         android:textStyle="italic"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center" />
 
     <TextView
         android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30sp"
-        android:text=""
         android:layout_gravity="center"
         android:textColor="#ffbf00"
         android:textSize="20sp" />
-        />
+    />
 
 </LinearLayout>

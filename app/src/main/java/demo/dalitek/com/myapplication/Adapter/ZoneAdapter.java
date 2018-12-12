@@ -1,6 +1,5 @@
 package demo.dalitek.com.myapplication.Adapter;
 
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,48 +9,47 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
-import demo.dalitek.com.myapplication.Util.UserData;
+import demo.dalitek.com.myapplication.Util.ZoneData;
 import demo.dalitek.com.myapplication.R;
 
-public class MyAdapter extends ArrayAdapter {
-
+public class ZoneAdapter extends ArrayAdapter {
+    private Context context;
     private int resourceId;
-
     @SuppressLint("ResourceType")
-    public MyAdapter(@NonNull Context context,
+    public ZoneAdapter(@NonNull Context context,
                      int resource,
                      @NonNull List objects) {
         super(context, resource, objects);
         resourceId = resource;
     }
-
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        UserData userData = (UserData) getItem(position);
-        UserLayout userLayout = new UserLayout();
+        ZoneData zoneData = (ZoneData) getItem(position);
+        ZoneLayout zoneLayout = new ZoneLayout();
         View view;
         if (convertView == null) {
             view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
-            userLayout.nameView = view.findViewById(R.id.user_name);
-            userLayout.userimg = view.findViewById(R.id.user_image);
-            view.setTag(userLayout);
+            zoneLayout.nameView = view.findViewById(R.id.user_zone_name);
+            zoneLayout.userimg = view.findViewById(R.id.user_zone_image);
+            zoneLayout.word = view.findViewById(R.id.user_zone_word);
+            view.setTag(zoneLayout);
         } else {
             view = convertView;
-            userLayout = (UserLayout) view.getTag();
+            zoneLayout = (ZoneLayout) view.getTag();
         }
-        userLayout.nameView.setText(userData.getUserName());
-        userLayout.userimg.setText(userData.getUserPwd());
+        zoneLayout.nameView.setText(zoneData.getUserName());
+        zoneLayout.userimg.setText(zoneData.getImg());
+        zoneLayout.word.setText(zoneData.getZoneWord());
         return view;
     }
 
-    class UserLayout {
+    class ZoneLayout {
         TextView nameView;
         TextView userimg;
-        ImageView imgView;
+        TextView word;
         Button addButton;
     }
 }

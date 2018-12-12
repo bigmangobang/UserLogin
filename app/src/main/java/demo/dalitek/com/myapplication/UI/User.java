@@ -30,6 +30,7 @@ public class User extends Activity implements AdapterView.OnItemClickListener {
     private TextView text;
     private ListView user_show;
     private UserDataManager userDataManager;
+    private String in;
 
 
     @SuppressLint("WrongViewCast")
@@ -38,11 +39,11 @@ public class User extends Activity implements AdapterView.OnItemClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user);
         userDataManager = new UserDataManager(this);
-        text = (TextView) findViewById(R.id.getname);
-        mReturnButton = (Button) findViewById(R.id.returnback);
-        user_show = (ListView) findViewById(R.id.user_lv);
-        String in = getIntent().getStringExtra("extra_data");
-        text.setText(in);
+        text = findViewById(R.id.getname);
+        mReturnButton = findViewById(R.id.returnback);
+        user_show = findViewById(R.id.user_lv);
+        showName();
+
         mReturnButton.setOnClickListener((v) -> {
             Intent intent = new Intent(User.this, MainActivity.class);
             startActivity(intent);
@@ -50,6 +51,15 @@ public class User extends Activity implements AdapterView.OnItemClickListener {
         });
         show();
         user_show.setOnItemClickListener(this);
+    }
+
+    private void showName() {
+        if (text.getText().equals("")) {
+            in = getIntent().getStringExtra("extra_data");
+            text.setText(in);
+            return;
+        }
+        else return;
     }
 
     public void show() {
@@ -71,10 +81,11 @@ public class User extends Activity implements AdapterView.OnItemClickListener {
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        TextView textView = (TextView) findViewById(R.id.user_name);
+        TextView textView = findViewById(R.id.user_name);
         String name = textView.getText().toString();
+        in = getIntent().getStringExtra("extra_data");
         Intent intent = new Intent(User.this, Zone.class);
-        intent.putExtra("userName", name);
+        intent.putExtra("userName", in);
         startActivity(intent);
     }
 }

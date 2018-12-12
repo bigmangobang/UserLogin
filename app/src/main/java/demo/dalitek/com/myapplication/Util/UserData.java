@@ -1,4 +1,4 @@
-package demo.dalitek.com.myapplication.Data;
+package demo.dalitek.com.myapplication.Util;
 
 public class UserData {
     private String userName;                  //用户名

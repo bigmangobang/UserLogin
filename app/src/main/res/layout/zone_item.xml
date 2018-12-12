@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/user_zone_image"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_gravity="center"
+        android:layout_marginStart="8sp"
+        android:layout_marginTop="15dp"
+        android:alpha="0.7"
+        android:background="@drawable/user_image"
+        android:gravity="center"
+        android:textColor="#816060"
+        android:textSize="25sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/user_zone_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="80sp"
+        android:text="显示名字"
+        android:textColor="#00456c"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/user_zone_word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_zone_name"
+        android:layout_gravity="center"
+        android:layout_marginStart="80sp"
+        android:textColor="#000000"
+        android:text="显示内容。。。。"
+        android:layout_marginRight="30dp"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/user_zone_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_zone_word"
+        android:layout_gravity="center"
+        android:layout_marginStart="80sp"
+        android:layout_marginTop="12sp"
+        android:textColor="#292929"
+        android:text="日期显示异常"
+        android:layout_marginRight="30dp"
+        android:textSize="12sp" />
+    <ImageView
+        android:id="@+id/pinlun"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/user_zone_word"
+        android:layout_marginTop="12sp"
+        android:src="@drawable/pinlun"/>
+</RelativeLayout>
