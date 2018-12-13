@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import demo.dalitek.com.myapplication.Util.UserData;
+import demo.dalitek.com.myapplication.Model.UserData;
 import demo.dalitek.com.myapplication.R;
 
 public class MyAdapter extends ArrayAdapter {

@@ -11,7 +11,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import demo.dalitek.com.myapplication.Util.UserData;
+import demo.dalitek.com.myapplication.Model.UserData;
 
 public class UserDataManager {             //用户数据管理类
     //一些宏定义和声明

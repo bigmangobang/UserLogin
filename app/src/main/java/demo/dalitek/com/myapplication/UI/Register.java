@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import demo.dalitek.com.myapplication.Util.UserData;
+import demo.dalitek.com.myapplication.Model.UserData;
 import demo.dalitek.com.myapplication.Data.UserDataManager;
 import demo.dalitek.com.myapplication.R;
 

@@ -11,8 +11,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import demo.dalitek.com.myapplication.Util.UserData;
-import demo.dalitek.com.myapplication.Util.ZoneData;
+import demo.dalitek.com.myapplication.Model.ZoneData;
 
 import static android.content.ContentValues.TAG;
 

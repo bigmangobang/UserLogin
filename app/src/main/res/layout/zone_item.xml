@@ -42,7 +42,7 @@
         android:id="@+id/user_zone_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/user_zone_word"
+        android:layout_below="@+id/img_show"
         android:layout_gravity="center"
         android:layout_marginStart="80sp"
         android:layout_marginTop="12sp"
@@ -55,7 +55,15 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/user_zone_word"
+        android:layout_below="@+id/img_show"
         android:layout_marginTop="12sp"
         android:src="@drawable/pinlun"/>
+    <ImageView
+        android:id="@+id/img_show"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:layout_marginStart="80sp"
+        android:background="@mipmap/black"
+        android:layout_below="@+id/user_zone_word"
+        />
 </RelativeLayout>

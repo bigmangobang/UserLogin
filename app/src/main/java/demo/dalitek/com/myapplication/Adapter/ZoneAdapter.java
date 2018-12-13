@@ -9,11 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
-import demo.dalitek.com.myapplication.Util.ZoneData;
+import demo.dalitek.com.myapplication.Model.ZoneData;
 import demo.dalitek.com.myapplication.R;
 
 public class ZoneAdapter extends ArrayAdapter {
@@ -50,6 +51,6 @@ public class ZoneAdapter extends ArrayAdapter {
         TextView nameView;
         TextView userimg;
         TextView word;
-        Button addButton;
+        ImageView image;
     }
 }

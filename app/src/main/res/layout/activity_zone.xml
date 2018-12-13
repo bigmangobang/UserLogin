@@ -25,7 +25,7 @@
 
             <TextView
                 android:id="@+id/back"
-                android:layout_width="20sp"
+                android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"
@@ -33,16 +33,16 @@
                 android:gravity="center"
                 android:textColor="#ffffff"
                 android:textSize="40sp" />
+
             <TextView
                 android:id="@+id/edit_word"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="我想说..."
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20sp"
-                android:textSize="15sp"
+                android:text="我想说..."
                 android:textColor="#042d30"
-                />
+                android:textSize="15sp" />
 
 
             <TextView
@@ -64,8 +64,8 @@
                 android:layout_height="80sp"
                 android:layout_alignBottom="@+id/img"
                 android:layout_alignParentEnd="true"
-                android:layout_marginBottom="-30dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginBottom="-30dp"
                 android:alpha="0.7"
                 android:background="@drawable/user_image"
                 android:gravity="center"
@@ -75,18 +75,18 @@
 
             <ListView
                 android:id="@+id/word_lv"
-                android:layout_marginTop="30dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/user_image" />
+                android:layout_below="@+id/user_image"
+                android:layout_marginTop="30dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/word_lv"
-                android:text="没有更多内容"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
-                />
+                android:layout_marginTop="20dp"
+                android:text="没有更多内容" />
         </RelativeLayout>
     </ScrollView>
     <!--发表朋友圈界面-->
@@ -102,7 +102,7 @@
 
             <TextView
                 android:id="@+id/back1"
-                android:layout_width="20sp"
+                android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="10sp"
@@ -138,13 +138,26 @@
             android:id="@+id/wenzi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/topPanel"
+            android:layout_marginTop="30dp"
             android:background="@drawable/login_edit"
             android:gravity="start"
-            android:layout_marginTop="30dp"
-            android:layout_below="@+id/topPanel"
             android:hint="这一刻的想法... ..."
-            android:lines="8"
-            />
+            android:lines="8" />
+
+        <TextView
+            android:id="@+id/choose_phone"
+            android:layout_width="120sp"
+            android:layout_height="120sp"
+            android:layout_below="@+id/wenzi"
+            android:background="@drawable/insert_phone" />
+        <ImageButton
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wenzi"
+            android:visibility="invisible"
+            android:layout_toRightOf="@+id/choose_phone"/>
 
 
     </RelativeLayout>
