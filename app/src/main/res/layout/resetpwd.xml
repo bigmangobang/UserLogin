@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".UI.Resetpwd">
 
     <TextView
         android:id="@+id/log1"
@@ -47,22 +49,24 @@
 
     <Button
         android:id="@+id/resetpwd_btn_sure"
-        android:layout_width="330sp"
-        android:layout_height="60sp"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:alpha="0.7"
         android:background="@drawable/login_button"
-        android:onClick="sure_to_reset"
+        android:layout_gravity="center"
         android:text="确    定"
         android:textColor="#ffffff"
         android:textSize="20dp" />
 
     <Button
         android:id="@+id/resetpwd_btn_cancel"
-        android:layout_width="330sp"
-        android:layout_height="60sp"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:alpha="0.7"
         android:background="@drawable/login_button"
-        android:onClick="not_to_reset"
+        android:layout_gravity="center"
         android:text="取    消"
         android:textColor="#ffffff"
         android:textSize="20dp" />

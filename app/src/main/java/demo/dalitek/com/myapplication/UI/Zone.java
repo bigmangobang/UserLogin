@@ -130,12 +130,7 @@ public class Zone extends Activity implements View.OnClickListener {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            adapter.notifyDataSetChanged();
-                        }
-                    });
+                    runOnUiThread(() -> adapter.notifyDataSetChanged());
                 }
             }
         });
@@ -145,7 +140,7 @@ public class Zone extends Activity implements View.OnClickListener {
     //显示头像和用户名
     private void showName() {
         zoneImg = findViewById(R.id.user_image);
-        zoneName = (TextView) findViewById(R.id.name_show);
+        zoneName =  findViewById(R.id.name_show);
         nameIn = getIntent().getStringExtra("userName");
         zoneName.setText(nameIn);
         zoneImg.setText(nameIn.subSequence(0, 1));
@@ -154,11 +149,11 @@ public class Zone extends Activity implements View.OnClickListener {
     //初始化界面
     @SuppressLint("WrongViewCast")
     private void init_view() {
-        layout1 = (ScrollView) findViewById(R.id.word_show);
-        layout2 = (RelativeLayout) findViewById(R.id.ly_2);
-        back = (TextView) findViewById(R.id.back);
-        back1 = (TextView) findViewById(R.id.back1);
-        editWord = (TextView) findViewById(R.id.edit_word);
+        layout1 =  findViewById(R.id.word_show);
+        layout2 =  findViewById(R.id.ly_2);
+        back =  findViewById(R.id.back);
+        back1 =  findViewById(R.id.back1);
+        editWord =  findViewById(R.id.edit_word);
         showLayout1();
         back.setOnClickListener(this);
         back1.setOnClickListener(this);
@@ -222,7 +217,7 @@ public class Zone extends Activity implements View.OnClickListener {
     /**
      * 收缩图片
      *
-     * @param uri
+     * @param Uri
      */
     public void startPhotoZoom(Uri uri) {
         Intent intent = new Intent("com.android.camera.action.CROP");

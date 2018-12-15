@@ -17,8 +17,6 @@ public class Resetpwd extends AppCompatActivity {
     private EditText mPwd_old;                        //密码编辑
     private EditText mPwd_new;                        //密码编辑
     private EditText mPwdCheck;                       //密码编辑
-    private Button mSureButton;                       //确定按钮
-    private Button mCancelButton;                     //取消按钮
     private UserDataManager mUserDataManager;         //用户数据管理类
 
     @Override
@@ -26,13 +24,15 @@ public class Resetpwd extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.resetpwd);
         getSupportActionBar().hide();
-        mAccount = (EditText) findViewById(R.id.resetpwd_edit_name);
-        mPwd_old = (EditText) findViewById(R.id.resetpwd_edit_pwd_old);
-        mPwd_new = (EditText) findViewById(R.id.resetpwd_edit_pwd_new);
-        mPwdCheck = (EditText) findViewById(R.id.resetpwd_edit_check);
+        mAccount =  findViewById(R.id.resetpwd_edit_name);
+        mPwd_old =  findViewById(R.id.resetpwd_edit_pwd_old);
+        mPwd_new =  findViewById(R.id.resetpwd_edit_pwd_new);
+        mPwdCheck =  findViewById(R.id.resetpwd_edit_check);
 
-        mSureButton = (Button) findViewById(R.id.resetpwd_btn_sure);
-        mCancelButton = (Button) findViewById(R.id.resetpwd_btn_cancel);
+        //确定按钮
+        Button mSureButton =  findViewById(R.id.resetpwd_btn_sure);
+        //取消按钮
+        Button mCancelButton =  findViewById(R.id.resetpwd_btn_cancel);
 
         mSureButton.setOnClickListener(m_resetpwd_Listener);      //注册界面两个按钮的监听事件
         mCancelButton.setOnClickListener(m_resetpwd_Listener);
@@ -42,18 +42,17 @@ public class Resetpwd extends AppCompatActivity {
         }
     }
 
-    View.OnClickListener m_resetpwd_Listener = new View.OnClickListener() {    //不同按钮按下的监听事件选择
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.resetpwd_btn_sure:
-                    resetpwd_check();
-                    break;
-                case R.id.resetpwd_btn_cancel:
-                    Intent intent_toLogin = new Intent(Resetpwd.this, MainActivity.class);
-                    startActivity(intent_toLogin);
-                    finish();
-                    break;
-            }
+    //不同按钮按下的监听事件选择
+    View.OnClickListener m_resetpwd_Listener = v -> {
+        switch (v.getId()) {
+            case R.id.resetpwd_btn_sure:
+                resetpwd_check();
+                break;
+            case R.id.resetpwd_btn_cancel:
+                Intent intent_toLogin = new Intent(Resetpwd.this, MainActivity.class);
+                startActivity(intent_toLogin);
+                finish();
+                break;
         }
     };
 
@@ -109,6 +108,9 @@ public class Resetpwd extends AppCompatActivity {
             return false;
         } else if (mPwdCheck.getText().toString().trim().equals("")) {
             Toast.makeText(this, getString(R.string.pwd_check_empty), Toast.LENGTH_SHORT).show();
+            return false;
+        }else if (mPwdCheck.getText().toString().trim().equals(mPwd_new.getText().toString().trim())) {
+            Toast.makeText(this, getString(R.string.pwd_not_the_same), Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

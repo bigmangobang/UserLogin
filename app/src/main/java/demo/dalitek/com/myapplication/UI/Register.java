@@ -18,8 +18,6 @@ public class Register extends AppCompatActivity {
     private EditText mAccount;                        //用户名编辑
     private EditText mPwd;                            //密码编辑
     private EditText mPwdCheck;                       //密码编辑
-    private Button mSureButton;                       //确定按钮
-    private Button mCancelButton;                     //取消按钮
     private UserDataManager mUserDataManager;         //用户数据管理类
 
     @Override
@@ -27,12 +25,14 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
         getSupportActionBar().hide();
-        mAccount = (EditText) findViewById(R.id.resetpwd_edit_name);
-        mPwd = (EditText) findViewById(R.id.resetpwd_edit_pwd_old);
-        mPwdCheck = (EditText) findViewById(R.id.resetpwd_edit_pwd_new);
+        mAccount =  findViewById(R.id.resetpwd_edit_name);
+        mPwd =  findViewById(R.id.resetpwd_edit_pwd_old);
+        mPwdCheck =  findViewById(R.id.resetpwd_edit_pwd_new);
 
-        mSureButton = (Button) findViewById(R.id.register_btn_sure);
-        mCancelButton = (Button) findViewById(R.id.register_btn_cancel);
+        //确定按钮
+        Button mSureButton = findViewById(R.id.register_btn_sure);
+        //取消按钮
+        Button mCancelButton = findViewById(R.id.register_btn_cancel);
 
         mSureButton.setOnClickListener(m_register_Listener);      //注册界面两个按钮的监听事件
         mCancelButton.setOnClickListener(m_register_Listener);
@@ -43,18 +43,16 @@ public class Register extends AppCompatActivity {
         }
     }
 
-    View.OnClickListener m_register_Listener = new View.OnClickListener() {
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.register_btn_sure:                       //确认按钮的监听事件
-                    register_check();
-                    break;
-                case R.id.register_btn_cancel:                     //取消按钮的监听事件,由注册界面返回登录界面
-                    Intent intent_Register_to_Login = new Intent(Register.this, MainActivity.class);
-                    startActivity(intent_Register_to_Login);
-                    finish();
-                    break;
-            }
+    View.OnClickListener m_register_Listener = v -> {
+        switch (v.getId()) {
+            case R.id.register_btn_sure:                       //确认按钮的监听事件
+                register_check();
+                break;
+            case R.id.register_btn_cancel:                     //取消按钮的监听事件,由注册界面返回登录界面
+                Intent intent_Register_to_Login = new Intent(Register.this, MainActivity.class);
+                startActivity(intent_Register_to_Login);
+                finish();
+                break;
         }
     };
 
@@ -70,9 +68,8 @@ public class Register extends AppCompatActivity {
                 Toast.makeText(this, getString(R.string.name_already_exist), Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (userPwd.equals(userPwdCheck) == false) {     //两次密码输入不一样
+            if (!userPwd.equals(userPwdCheck)) {     //两次密码输入不一样
                 Toast.makeText(this, getString(R.string.pwd_not_the_same), Toast.LENGTH_SHORT).show();
-                return;
             } else {
                 UserData mUser = new UserData(userName, userPwd);
                 mUserDataManager.openDataBase();
@@ -101,6 +98,9 @@ public class Register extends AppCompatActivity {
         } else if (mPwdCheck.getText().toString().trim().equals("")) {
             Toast.makeText(this, getString(R.string.pwd_check_empty),
                     Toast.LENGTH_SHORT).show();
+            return false;
+        }else if (mPwdCheck.getText().toString().trim().equals(mPwd.getText().toString().trim())) {
+            Toast.makeText(this, getString(R.string.pwd_not_the_same), Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
